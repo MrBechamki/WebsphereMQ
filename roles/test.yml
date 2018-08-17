@@ -1,0 +1,21 @@
+#- hosts: all
+
+  #ddtasks:
+  #   - name: create local queue role 
+       
+   #    become: yes
+   #    become_method: su 
+   #    become_user: mqm
+
+- name:  " create ROLE"
+  hosts: all
+  become: yes
+  become_method: su     
+  become_user: mqm
+  roles:
+    - role: "IBMQUEUE"
+      IBMQUEUE_QUEUE: RANSIBLETESTT2233T
+      IBMQUEUE_QMGR: QMGR2 
+      IBMQUEUE_RNAME:  ANSIBLEREMOTE
+      IBMQUEUE_RQNAME:  QMGR
+      IBMQUEUE_XMITQ: QMGR.X1

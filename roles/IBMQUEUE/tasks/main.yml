@@ -1,0 +1,8 @@
+
+- name: "CRLQ"
+  shell:  echo 'def ql({{IBMQUEUE_QUEUE}})' |  /opt/mqm/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtql' ]
+- name: "CRMQ"
+  shell: echo 'def qr({{IBMQUEUE_QUEUE}}) rname({{IBMQUEUE_RNAME}}) rqmname({{IBMQUEUE_RQNAME}}) xmitq({{IBMQUEUE_XMITQ}})' |  /opt/mqm/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtqr']
+

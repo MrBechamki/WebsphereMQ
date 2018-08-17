@@ -1,0 +1,6 @@
+- name : " task de Role"
+  vars_prompt:
+  - name: "QMGR"
+    prompt: "QMGR ?" 
+  shell: echo "jdkjfdkj"
+  notify: ["CRLQ"] 

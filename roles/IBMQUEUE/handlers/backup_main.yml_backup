@@ -1,0 +1,4 @@
+
+- name: "CRLQ"
+  shell:  echo 'def ql({{IBMQUEUE_QUEUE}})' |  /opt/mqm/bin/runmqsc {{IBMQUEUE_QMGR}}
+
