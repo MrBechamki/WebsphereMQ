@@ -8,14 +8,18 @@
    #    become_user: mqm
 
 - name:  " create ROLE"
-  hosts: all
+  hosts: localhost
   become: yes
   become_method: su     
   become_user: mqm
   roles:
     - role: "IBMQUEUE"
-      IBMQUEUE_QUEUE: RANSIBLETESTT2233T
+      IBMQUEUE_QUEUE: XMITQ1111 
       IBMQUEUE_QMGR: QMGR2 
       IBMQUEUE_RNAME:  ANSIBLEREMOTE
       IBMQUEUE_RQNAME:  QMGR
       IBMQUEUE_XMITQ: QMGR.X1
+      IBMQUEUE_TSTR:  TPCSTR
+      IBMQUEUE_CHL:  QMGR.TO
+      IBMQUEUE_REMOTE_HOST: "'localhost(1221)'"
+      IBMQUEUE_CHANNEL_XMITQ: XMITQ
