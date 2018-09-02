@@ -1,7 +1,0 @@
-- hosts: all
-  tasks:
-     - name: endmqm test 
-       shell: /opt/mqm/bin/endmqm -i QMGR 
-       become: yes
-       become_method: su 
-       become_user: mqm 

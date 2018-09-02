@@ -1,25 +1,17 @@
-#- hosts: all
-
-  #ddtasks:
-  #   - name: create local queue role 
-       
-   #    become: yes
-   #    become_method: su 
-   #    become_user: mqm
-
 - name:  " create ROLE"
-  hosts: localhost
+  hosts: local
   become: yes
   become_method: su     
   become_user: mqm
   roles:
     - role: "IBMQUEUE"
-      IBMQUEUE_QUEUE: XMITQ1111 
+      IBMQUEUE_QUEUE: 34434434hdhdh31111 
       IBMQUEUE_QMGR: QMGR2 
       IBMQUEUE_RNAME:  ANSIBLEREMOTE
       IBMQUEUE_RQNAME:  QMGR
       IBMQUEUE_XMITQ: QMGR.X1
       IBMQUEUE_TSTR:  TPCSTR
-      IBMQUEUE_CHL:  QMGR.TO
+      IBMQUEUE_CHL:  QMiGR.SVRCONN
       IBMQUEUE_REMOTE_HOST: "'localhost(1221)'"
       IBMQUEUE_CHANNEL_XMITQ: XMITQ
+

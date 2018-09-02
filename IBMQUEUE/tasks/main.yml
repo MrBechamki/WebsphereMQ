@@ -1,0 +1,24 @@
+
+- name: "CRLQ"
+  shell:  echo 'def ql({{IBMQUEUE_QUEUE}})' |  {{IBM_PATH}}/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtql' ]
+- name: "CRMQ"
+  shell: echo 'def qr({{IBMQUEUE_QUEUE}}) rname({{IBMQUEUE_RNAME}}) rqmname({{IBMQUEUE_RQNAME}}) xmitq({{IBMQUEUE_XMITQ}})' |  {{IBM_PATH}}/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtqr']
+- name: "CRTPC"
+  shell: echo 'def topic({{IBMQUEUE_QUEUE}}) TOPICSTR({{IBMQUEUE_TSTR}}) ' |  {{IBM_PATH}}/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtpc']
+- name: "CRXMQ"
+  shell: echo 'def ql({{IBMQUEUE_QUEUE}}) USAGE(XMITQ) ' | {{IBM_PATH}}/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtxmq']
+- name: "Create Sender  Channel "
+  shell: echo "def chl({{IBMQUEUE_CHL}})  CHLTYPE(SDR)  CONNAME({{IBMQUEUE_REMOTE_HOST}})  TRPTYPE(TCP) XMITQ({{IBMQUEUE_CHANNEL_XMITQ}})"  | {{IBM_PATH}}/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtschl']
+- name: "Create Receiver  Channel "
+  shell: echo "def chl({{IBMQUEUE_CHL}})  CHLTYPE(RCVR)  "  | {{IBM_PATH}}/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtrchl']
+- name: "Create Svrconn  Channel "
+  shell: echo "def chl({{IBMQUEUE_CHL}})   CHLTYPE(SVRCONN) TRPTYPE(TCP)  "  | {{IBM_PATH}}/bin/runmqsc {{IBMQUEUE_QMGR}}
+  tags: ['never' , 'crtsvrc']
+
+

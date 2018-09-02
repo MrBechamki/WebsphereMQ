@@ -1,0 +1,2 @@
+[local]
+localhost IBM_PATH="/opt/mqm" ansible_connection=local ansible_user=mqm
